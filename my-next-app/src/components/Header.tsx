@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import {
   Dialog,
@@ -153,8 +152,8 @@ export default function Header() {
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
             Marketplace
           </a>
-          <a href="#" className="text-sm/6 font-semibold text-gray-900">
-            Company
+          <a href="/cart" className="text-sm/6 font-semibold text-gray-900">
+            Cart
           </a>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
