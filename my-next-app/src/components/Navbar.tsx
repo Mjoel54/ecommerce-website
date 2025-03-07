@@ -58,7 +58,7 @@ const callsToAction = [
   { name: "View all products", href: "#", icon: RectangleGroupIcon },
 ];
 
-export default function Header() {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
