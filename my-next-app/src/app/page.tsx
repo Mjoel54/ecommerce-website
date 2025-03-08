@@ -1,10 +1,11 @@
 import Navbar from "../components/Navbar";
+import ProductList from "../components/productList";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <h1>Home</h1>
+      <ProductList />
     </>
   );
 }
