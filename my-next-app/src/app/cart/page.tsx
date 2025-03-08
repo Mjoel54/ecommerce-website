@@ -1,4 +1,5 @@
-import productList from "../../data/productList.json";
+import productDataObjects from "../../data/products";
+// console.log(productDataObjects);
 
 export default function Cart() {
   return (
@@ -43,11 +44,11 @@ export default function Cart() {
                 role="list"
                 className="mt-6 divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-gray-500"
               >
-                {productList.products.map((product) => (
+                {productDataObjects.map((product) => (
                   <li key={product.id} className="flex space-x-6 py-6">
                     <img
-                      // alt={product.imageAlt}
-                      src={product.imageUrl}
+                      alt="test"
+                      src={product.image.src}
                       className="size-24 flex-none rounded-md bg-gray-100 object-cover"
                     />
                     <div className="flex-auto space-y-1">
