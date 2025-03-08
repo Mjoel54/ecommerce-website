@@ -48,16 +48,16 @@ export default function ProductList() {
               />
               <div className="flex flex-1 flex-col space-y-2 p-4">
                 <h3 className="text-sm font-medium text-gray-900">
-                  <a href={product.href}>
+                  <a href="#">
                     <span aria-hidden="true" className="absolute inset-0" />
                     {product.name}
                   </a>
                 </h3>
                 <p className="text-sm text-gray-500">{product.description}</p>
                 <div className="flex flex-1 flex-col justify-end">
-                  <p className="text-sm text-gray-500 italic">
+                  {/* <p className="text-sm text-gray-500 italic">
                     {product.options}
-                  </p>
+                  </p> */}
                   <p className="text-base font-medium text-gray-900">
                     {product.price}
                   </p>
