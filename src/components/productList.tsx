@@ -1,4 +1,6 @@
+"use client";
 import productDataObjects from "../data/products";
+import { CheckCircleIcon } from "@heroicons/react/20/solid";
 
 // const products = [
 //   {
@@ -28,6 +30,9 @@ import productDataObjects from "../data/products";
 //   },
 //   // More products...
 // ];
+const handleClick = () => {
+  console.log("Add to cart clicked");
+};
 
 export default function ProductList() {
   return (
@@ -48,10 +53,11 @@ export default function ProductList() {
               />
               <div className="flex flex-1 flex-col space-y-2 p-4">
                 <h3 className="text-sm font-medium text-gray-900">
-                  <a href="#">
+                  {/* <a href="#">
                     <span aria-hidden="true" className="absolute inset-0" />
                     {product.name}
-                  </a>
+                  </a> */}
+                  {product.name}
                 </h3>
                 <p className="text-sm text-gray-500">{product.description}</p>
                 <div className="flex flex-1 flex-col justify-end">
@@ -61,6 +67,17 @@ export default function ProductList() {
                   <p className="text-base font-medium text-gray-900">
                     {product.price}
                   </p>
+                  <button
+                    type="button"
+                    onClick={handleClick}
+                    className="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
+                  >
+                    <CheckCircleIcon
+                      aria-hidden="true"
+                      className="-ml-0.5 size-5"
+                    />
+                    Add to cart
+                  </button>
                 </div>
               </div>
             </div>
