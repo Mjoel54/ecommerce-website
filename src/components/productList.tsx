@@ -1,40 +1,17 @@
 "use client";
-import productDataObjects from "../data/products";
-import { CheckCircleIcon } from "@heroicons/react/20/solid";
 
-// const products = [
-//   {
-//     id: 1,
-//     name: "Basic Tee 8-Pack",
-//     href: "#",
-//     price: "$256",
-//     description:
-//       "Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.",
-//     options: "8 colors",
-//     imageSrc:
-//       "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-02-image-card-01.jpg",
-//     imageAlt:
-//       "Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.",
-//   },
-//   {
-//     id: 2,
-//     name: "Basic Tee",
-//     href: "#",
-//     price: "$32",
-//     description:
-//       "Look like a visionary CEO and wear the same black t-shirt every day.",
-//     options: "Black",
-//     imageSrc:
-//       "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-02-image-card-02.jpg",
-//     imageAlt: "Front of plain black t-shirt.",
-//   },
-//   // More products...
-// ];
-const handleClick = () => {
-  console.log("Add to cart clicked");
-};
+import { useDispatch, useSelector } from "react-redux";
+import productDataObjects from "../data/products";
+// import { CheckCircleIcon } from "@heroicons/react/20/solid";
+import cartSlice from "../data/cartSlice";
 
 export default function ProductList() {
+  const { cartProductIds } = useSelector((state) => state.cart);
+  const { addToCart, removeFromCart } = cartSlice.actions;
+  const dispatch = useDispatch();
+
+  console.log("cartProductIds", cartProductIds);
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -49,7 +26,7 @@ export default function ProductList() {
               <img
                 // alt={product.imageAlt}
                 src={product.image.src}
-                className="aspect-3/4 w-full bg-gray-200 object-cover group-hover:opacity-75 sm:aspect-auto sm:h-96"
+                className="aspect-3/4 w-full bg-gray-200 object-cover sm:aspect-auto sm:h-96"
               />
               <div className="flex flex-1 flex-col space-y-2 p-4">
                 <h3 className="text-sm font-medium text-gray-900">
@@ -67,17 +44,26 @@ export default function ProductList() {
                   <p className="text-base font-medium text-gray-900">
                     {product.price}
                   </p>
-                  <button
-                    type="button"
-                    onClick={handleClick}
-                    className="inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
-                  >
-                    <CheckCircleIcon
-                      aria-hidden="true"
-                      className="-ml-0.5 size-5"
-                    />
-                    Add to cart
-                  </button>
+                </div>
+                <div>
+                  {!cartProductIds.includes(product.id) && (
+                    <button
+                      type="button"
+                      onClick={() => dispatch(addToCart(product.id))}
+                      className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
+                    >
+                      Add to cart
+                    </button>
+                  )}
+                  {cartProductIds.includes(product.id) && (
+                    <button
+                      type="button"
+                      onClick={() => dispatch(removeFromCart(product.id))}
+                      className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
+                    >
+                      Remove from cart
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

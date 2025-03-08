@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import store from "../data/store";
-import { Provider } from "react-redux";
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
+import ClientProvider from "../components/ClientProvider"; // adjust the path as needed
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,15 +9,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Provider store={store}>{children}</Provider>
+      <body>
+        <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
   );
