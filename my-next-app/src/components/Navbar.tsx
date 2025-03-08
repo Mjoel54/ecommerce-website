@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import {
   Dialog,
   DialogPanel,
@@ -152,9 +153,9 @@ export default function Navbar() {
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
             Marketplace
           </a>
-          <a href="/cart" className="text-sm/6 font-semibold text-gray-900">
+          <Link href="/cart" className="text-sm/6 font-semibold text-gray-900">
             Cart
-          </a>
+          </Link>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm/6 font-semibold text-gray-900">
