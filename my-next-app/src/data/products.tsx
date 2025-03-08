@@ -12,25 +12,25 @@ import roundVase from "./images/roundVase.jpg";
 const productsData = [
   {
     name: "Bergamont Candle",
-    detail: "Candle",
+    description: "Candle",
     price: 45,
     image: bergamontCandle,
   },
   {
     name: "Soy Candle",
-    detail: "Candle",
+    description: "Candle",
     price: 55,
     image: soyCandle,
   },
   {
     name: "Set of 4 - Soy Candles",
-    detail: "Candles",
+    description: "Candles",
     price: 130,
     image: setOfFourSoyCandles,
   },
   {
     name: "Smokey Wood",
-    detail: "Scented Candle",
+    description: "Scented Candle",
     price: 40,
     image: smokeyWoodCandle,
     imageUrl:
@@ -38,7 +38,7 @@ const productsData = [
   },
   {
     name: "New York City",
-    detail: "Soy Candle",
+    description: "Soy Candle",
     price: 40,
     image: nycCandle,
     imageUrl:
@@ -46,7 +46,7 @@ const productsData = [
   },
   {
     name: "Mahogany",
-    detail: "Small scented candle",
+    description: "Small scented candle",
     price: 20,
     image: mahoganySmall,
     imageUrl:
@@ -54,7 +54,7 @@ const productsData = [
   },
   {
     name: "Blue Flecks",
-    detail: "Hand made",
+    description: "Hand made",
     price: 55,
     image: blueFlecks,
     imageUrl:
@@ -62,7 +62,7 @@ const productsData = [
   },
   {
     name: "Vase",
-    detail: "Super Elton Robot",
+    description: "Super Elton Robot",
     price: 130,
     image: blackVase,
     imageUrl:
@@ -70,7 +70,7 @@ const productsData = [
   },
   {
     name: "Stone mug",
-    detail: "Super Elton Robot",
+    description: "Super Elton Robot",
     price: 25,
     image: stoneMug,
     imageUrl:
@@ -78,7 +78,7 @@ const productsData = [
   },
   {
     name: "Round Vase",
-    detail: "Super Elton Robot",
+    description: "Super Elton Robot",
     price: 130,
     image: roundVase,
     imageUrl:
@@ -90,7 +90,7 @@ const productsDataObjects = productsData.map((product, index) => {
   return {
     id: index,
     name: product.name,
-    detail: product.detail,
+    description: product.description,
     price: product.price,
     image: product.image,
   };
