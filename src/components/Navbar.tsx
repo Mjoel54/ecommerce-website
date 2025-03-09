@@ -1,5 +1,7 @@
 "use client";
 
+import { useSelector } from "react-redux";
+
 import { Fragment, useState } from "react";
 import Link from "next/link";
 import {
@@ -93,6 +95,7 @@ const navigation = {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { cartProductIds } = useSelector((state) => state.cart);
 
   return (
     <div className="bg-white">
@@ -592,7 +595,7 @@ export default function Navbar() {
                             className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                           />
                           <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                            0
+                            {cartProductIds.length}
                           </span>
                           <span className="sr-only">
                             items in cart, view bag
