@@ -3,10 +3,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import productDataObjects from "../data/products";
 // import { CheckCircleIcon } from "@heroicons/react/20/solid";
-import cartSlice from "../data/cartSlice";
+import cartSlice from "../redux/cartSlice";
+import { RootState } from "../redux/store";
 
 export default function ProductList() {
-  const { cartProductIds } = useSelector((state) => state.cart);
+  const { cartProductIds } = useSelector((state: RootState) => state.cart);
   const { addToCart, removeFromCart } = cartSlice.actions;
   const dispatch = useDispatch();
 
@@ -46,19 +47,26 @@ export default function ProductList() {
                   </p>
                 </div>
                 <div>
-                  {!cartProductIds.includes(product.id) && (
+                  {!cartProductIds.some(
+                    (cartItem) => cartItem.id === product.id
+                  ) && (
                     <button
                       type="button"
-                      onClick={() => dispatch(addToCart(product.id))}
+                      onClick={() => dispatch(addToCart({ id: product.id }))}
                       className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
                     >
                       Add to cart
                     </button>
                   )}
-                  {cartProductIds.includes(product.id) && (
+
+                  {cartProductIds.some(
+                    (cartItem) => cartItem.id === product.id
+                  ) && (
                     <button
                       type="button"
-                      onClick={() => dispatch(removeFromCart(product.id))}
+                      onClick={() =>
+                        dispatch(removeFromCart({ id: product.id }))
+                      }
                       className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
                     >
                       Remove from cart

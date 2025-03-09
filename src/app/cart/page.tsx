@@ -2,14 +2,20 @@
 
 import productDataObjects from "../../data/products";
 import { useSelector, useDispatch } from "react-redux";
-import cartSlice from "../../data/cartSlice";
+import cartSlice from "../../redux/cartSlice";
+// import { cartState } from "../../redux/Cart";
+import { RootState } from "../../redux/store";
 // console.log(productDataObjects);
 
 export default function Cart() {
-  const { cartProductIds } = useSelector((state) => state.cart);
+  const { cartProductIds } = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
+  const cartProductIdSet = new Set(
+    cartProductIds.map((cartItem) => cartItem.id)
+  );
+
   const cartProductData = productDataObjects.filter((product) =>
-    cartProductIds.includes(product.id)
+    cartProductIdSet.has(product.id)
   );
 
   const { clearCart } = cartSlice.actions;

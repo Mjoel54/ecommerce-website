@@ -1,6 +1,7 @@
 "use client";
 
 import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 import { Fragment, useState } from "react";
 import Link from "next/link";
@@ -95,7 +96,7 @@ const navigation = {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { cartProductIds } = useSelector((state) => state.cart);
+  const { cartProductIds } = useSelector((state: RootState) => state.cart);
 
   return (
     <div className="bg-white">
