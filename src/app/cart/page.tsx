@@ -1,7 +1,25 @@
+"use client";
+
 import productDataObjects from "../../data/products";
+import { useSelector, useDispatch } from "react-redux";
+import cartSlice from "../../redux/cartSlice";
+// import { cartState } from "../../redux/Cart";
+import { RootState } from "../../redux/store";
 // console.log(productDataObjects);
 
 export default function Cart() {
+  const { cartProductIds } = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
+  const cartProductIdSet = new Set(
+    cartProductIds.map((cartItem) => cartItem.id)
+  );
+
+  const cartProductData = productDataObjects.filter((product) =>
+    cartProductIdSet.has(product.id)
+  );
+
+  const { clearCart } = cartSlice.actions;
+
   return (
     <>
       {/*
@@ -39,31 +57,40 @@ export default function Cart() {
                 <dt className="text-gray-900">Tracking number</dt>
                 <dd className="mt-2 text-indigo-600">51547878755545848512</dd>
               </dl>
-
-              <ul
-                role="list"
-                className="mt-6 divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-gray-500"
+              <button
+                type="button"
+                onClick={() => dispatch(clearCart())}
+                className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
               >
-                {productDataObjects.map((product) => (
-                  <li key={product.id} className="flex space-x-6 py-6">
-                    <img
-                      alt="test"
-                      src={product.image.src}
-                      className="size-24 flex-none rounded-md bg-gray-100 object-cover"
-                    />
-                    <div className="flex-auto space-y-1">
-                      <h3 className="text-gray-900">
-                        <p>{product.name}</p>
-                      </h3>
-                      {/* <p>{product.color}</p>
+                Empty cart
+              </button>
+
+              {cartProductData.length > 0 && (
+                <ul
+                  role="list"
+                  className="mt-6 divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-gray-500"
+                >
+                  {cartProductData.map((product) => (
+                    <li key={product.id} className="flex space-x-6 py-6">
+                      <img
+                        alt="test"
+                        src={product.image.src}
+                        className="size-24 flex-none rounded-md bg-gray-100 object-cover"
+                      />
+                      <div className="flex-auto space-y-1">
+                        <h3 className="text-gray-900">
+                          <p>{product.name}</p>
+                        </h3>
+                        {/* <p>{product.color}</p>
                       <p>{product.size}</p> */}
-                    </div>
-                    <p className="flex-none font-medium text-gray-900">
-                      {product.price}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+                      </div>
+                      <p className="flex-none font-medium text-gray-900">
+                        {product.price}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
               <dl className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-500">
                 <div className="flex justify-between">
