@@ -1,14 +1,18 @@
 "use client";
 
 import productDataObjects from "../../data/products";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import cartSlice from "../../data/cartSlice";
 // console.log(productDataObjects);
 
 export default function Cart() {
   const { cartProductIds } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const cartProductData = productDataObjects.filter((product) =>
     cartProductIds.includes(product.id)
   );
+
+  const { clearCart } = cartSlice.actions;
 
   return (
     <>
@@ -47,6 +51,13 @@ export default function Cart() {
                 <dt className="text-gray-900">Tracking number</dt>
                 <dd className="mt-2 text-indigo-600">51547878755545848512</dd>
               </dl>
+              <button
+                type="button"
+                onClick={() => dispatch(clearCart())}
+                className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
+              >
+                Empty cart
+              </button>
 
               {cartProductData.length > 0 && (
                 <ul
