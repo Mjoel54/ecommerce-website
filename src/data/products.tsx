@@ -86,7 +86,7 @@ const productsData = [
   },
 ];
 
-const productsDataObjects = productsData.map((product, index) => {
+const productDataObjects = productsData.map((product, index) => {
   return {
     id: index,
     name: product.name,
@@ -96,4 +96,4 @@ const productsDataObjects = productsData.map((product, index) => {
   };
 });
 
-export default productsDataObjects;
+export default productDataObjects;
