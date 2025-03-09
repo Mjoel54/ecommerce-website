@@ -1,7 +1,15 @@
+"use client";
+
 import productDataObjects from "../../data/products";
+import { useSelector } from "react-redux";
 // console.log(productDataObjects);
 
 export default function Cart() {
+  const { cartProductIds } = useSelector((state) => state.cart);
+  const cartProductData = productDataObjects.filter((product) =>
+    cartProductIds.includes(product.id)
+  );
+
   return (
     <>
       {/*
@@ -40,30 +48,32 @@ export default function Cart() {
                 <dd className="mt-2 text-indigo-600">51547878755545848512</dd>
               </dl>
 
-              <ul
-                role="list"
-                className="mt-6 divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-gray-500"
-              >
-                {productDataObjects.map((product) => (
-                  <li key={product.id} className="flex space-x-6 py-6">
-                    <img
-                      alt="test"
-                      src={product.image.src}
-                      className="size-24 flex-none rounded-md bg-gray-100 object-cover"
-                    />
-                    <div className="flex-auto space-y-1">
-                      <h3 className="text-gray-900">
-                        <p>{product.name}</p>
-                      </h3>
-                      {/* <p>{product.color}</p>
+              {cartProductData.length > 0 && (
+                <ul
+                  role="list"
+                  className="mt-6 divide-y divide-gray-200 border-t border-gray-200 text-sm font-medium text-gray-500"
+                >
+                  {cartProductData.map((product) => (
+                    <li key={product.id} className="flex space-x-6 py-6">
+                      <img
+                        alt="test"
+                        src={product.image.src}
+                        className="size-24 flex-none rounded-md bg-gray-100 object-cover"
+                      />
+                      <div className="flex-auto space-y-1">
+                        <h3 className="text-gray-900">
+                          <p>{product.name}</p>
+                        </h3>
+                        {/* <p>{product.color}</p>
                       <p>{product.size}</p> */}
-                    </div>
-                    <p className="flex-none font-medium text-gray-900">
-                      {product.price}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+                      </div>
+                      <p className="flex-none font-medium text-gray-900">
+                        {product.price}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
               <dl className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-500">
                 <div className="flex justify-between">
