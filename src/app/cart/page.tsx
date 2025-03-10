@@ -8,13 +8,15 @@ import { RootState } from "../../redux/store";
 import Link from "next/link";
 
 // console.log(productDataObjects);
+// const shipping = 8;
+// const taxes = 6.4;
 
 export default function Cart() {
-  const { cartProductIds } = useSelector((state: RootState) => state.cart);
-  const dispatch = useDispatch();
-  const cartProductIdSet = new Set(
-    cartProductIds.map((cartItem) => cartItem.id)
+  const { cartProducts, totalPrice } = useSelector(
+    (state: RootState) => state.cart
   );
+  const dispatch = useDispatch();
+  const cartProductIdSet = new Set(cartProducts.map((cartItem) => cartItem.id));
 
   const cartProductData = productDataObjects.filter((product) =>
     cartProductIdSet.has(product.id)
@@ -97,27 +99,27 @@ export default function Cart() {
                 </ul>
               )}
 
-              {/* <dl className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-500">
+              <dl className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-500">
                 <div className="flex justify-between">
                   <dt>Subtotal</dt>
-                  <dd className="text-gray-900">$72.00</dd>
+                  <dd className="text-gray-900">${totalPrice}</dd>
                 </div>
 
-                <div className="flex justify-between">
+                {/* <div className="flex justify-between">
                   <dt>Shipping</dt>
-                  <dd className="text-gray-900">$8.00</dd>
+                  <dd className="text-gray-900">${shipping}</dd>
                 </div>
 
                 <div className="flex justify-between">
                   <dt>Taxes</dt>
-                  <dd className="text-gray-900">$6.40</dd>
-                </div>
+                  <dd className="text-gray-900">${taxes}</dd>
+                </div> */}
 
                 <div className="flex items-center justify-between border-t border-gray-200 pt-6 text-gray-900">
                   <dt className="text-base">Total</dt>
-                  <dd className="text-base">$86.40</dd>
+                  <dd className="text-base">${totalPrice}</dd>
                 </div>
-              </dl> */}
+              </dl>
 
               {/* <dl className="mt-16 grid grid-cols-2 gap-x-4 text-sm text-gray-600">
                 <div>

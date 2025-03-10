@@ -7,11 +7,11 @@ import cartSlice from "../redux/cartSlice";
 import { RootState } from "../redux/store";
 
 export default function ProductList() {
-  const { cartProductIds } = useSelector((state: RootState) => state.cart);
+  const { cartProducts } = useSelector((state: RootState) => state.cart);
   const { addToCart, removeFromCart } = cartSlice.actions;
   const dispatch = useDispatch();
 
-  console.log("cartProductIds", cartProductIds);
+  console.log("cartProductIds", cartProducts);
 
   return (
     <div className="bg-white">
@@ -47,25 +47,34 @@ export default function ProductList() {
                   </p>
                 </div>
                 <div>
-                  {!cartProductIds.some(
+                  {!cartProducts.some(
                     (cartItem) => cartItem.id === product.id
                   ) && (
                     <button
                       type="button"
-                      onClick={() => dispatch(addToCart({ id: product.id }))}
+                      onClick={() =>
+                        dispatch(
+                          addToCart({ id: product.id, price: product.price })
+                        )
+                      }
                       className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
                     >
                       Add to cart
                     </button>
                   )}
 
-                  {cartProductIds.some(
+                  {cartProducts.some(
                     (cartItem) => cartItem.id === product.id
                   ) && (
                     <button
                       type="button"
                       onClick={() =>
-                        dispatch(removeFromCart({ id: product.id }))
+                        dispatch(
+                          removeFromCart({
+                            id: product.id,
+                            price: product.price,
+                          })
+                        )
                       }
                       className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
                     >
