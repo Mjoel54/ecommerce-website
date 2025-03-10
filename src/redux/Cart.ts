@@ -1,13 +1,14 @@
 export interface CartItem {
   readonly id: number;
+  price: number;
 }
 
 export interface CartState {
-  cartProductIds: CartItem[];
-  //   totalPrice: number;
+  cartProducts: CartItem[];
+  totalPrice: number;
 }
 
 export const initialState: CartState = {
-  cartProductIds: [],
-  //   totalPrice: 0,
+  cartProducts: [],
+  totalPrice: 0,
 };

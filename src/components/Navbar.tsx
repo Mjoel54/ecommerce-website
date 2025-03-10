@@ -96,7 +96,7 @@ const navigation = {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { cartProductIds } = useSelector((state: RootState) => state.cart);
+  const { cartProducts } = useSelector((state: RootState) => state.cart);
 
   return (
     <div className="bg-white">
@@ -600,7 +600,7 @@ export default function Navbar() {
                             className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                           />
                           <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                            {cartProductIds.length}
+                            {cartProducts.length}
                           </span>
                           <span className="sr-only">
                             items in cart, view bag
