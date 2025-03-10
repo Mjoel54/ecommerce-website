@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import cartSlice from "../../redux/cartSlice";
 // import { cartState } from "../../redux/Cart";
 import { RootState } from "../../redux/store";
+import Link from "next/link";
+
 // console.log(productDataObjects);
 
 export default function Cart() {
@@ -42,28 +44,31 @@ export default function Cart() {
         <div>
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-32 xl:gap-x-24">
             <div className="lg:col-start-2">
-              <h1 className="text-sm font-medium text-indigo-600">
-                Payment successful
+              <h1 className="my-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                Your Cart
               </h1>
-              <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                Thanks for ordering
-              </p>
-              <p className="mt-2 text-base text-gray-500">
+              {/* <p className="mt-2 text-base text-gray-500">
                 We appreciate your order, we’re currently processing it. So hang
                 tight and we’ll send you confirmation very soon!
-              </p>
+              </p> */}
 
-              <dl className="mt-16 text-sm font-medium">
+              {/* <dl className="mt-16 text-sm font-medium">
                 <dt className="text-gray-900">Tracking number</dt>
                 <dd className="mt-2 text-indigo-600">51547878755545848512</dd>
-              </dl>
-              <button
-                type="button"
-                onClick={() => dispatch(clearCart())}
-                className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
-              >
-                Empty cart
-              </button>
+              </dl> */}
+              {cartProductData.length > 0 ? (
+                <div className="flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => dispatch(clearCart())}
+                    className="rounded-sm my-2 bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
+                  >
+                    Empty cart
+                  </button>
+                </div>
+              ) : (
+                <></>
+              )}
 
               {cartProductData.length > 0 && (
                 <ul
@@ -92,7 +97,7 @@ export default function Cart() {
                 </ul>
               )}
 
-              <dl className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-500">
+              {/* <dl className="space-y-6 border-t border-gray-200 pt-6 text-sm font-medium text-gray-500">
                 <div className="flex justify-between">
                   <dt>Subtotal</dt>
                   <dd className="text-gray-900">$72.00</dd>
@@ -112,9 +117,9 @@ export default function Cart() {
                   <dt className="text-base">Total</dt>
                   <dd className="text-base">$86.40</dd>
                 </div>
-              </dl>
+              </dl> */}
 
-              <dl className="mt-16 grid grid-cols-2 gap-x-4 text-sm text-gray-600">
+              {/* <dl className="mt-16 grid grid-cols-2 gap-x-4 text-sm text-gray-600">
                 <div>
                   <dt className="font-medium text-gray-900">
                     Shipping Address
@@ -154,16 +159,16 @@ export default function Cart() {
                     </div>
                   </dd>
                 </div>
-              </dl>
+              </dl> */}
 
               <div className="mt-16 border-t border-gray-200 py-6 text-right">
-                <a
-                  href="#"
+                <Link
+                  href="/"
                   className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Continue Shopping
                   <span aria-hidden="true"> &rarr;</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

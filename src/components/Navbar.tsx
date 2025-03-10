@@ -9,10 +9,10 @@ import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-  PopoverPanel,
+  // Popover,
+  // PopoverButton,
+  // PopoverGroup,
+  // PopoverPanel,
   Tab,
   TabGroup,
   TabList,
@@ -20,10 +20,10 @@ import {
   TabPanels,
 } from "@headlessui/react";
 import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
+  // Bars3Icon,
+  // MagnifyingGlassIcon,
   ShoppingCartIcon,
-  UserIcon,
+  // UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
