@@ -6,16 +6,23 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state: CartState, action: PayloadAction<CartItem>) => {
-      state.cartProductIds = [action.payload, ...state.cartProductIds];
+      state.cartProducts.push(action.payload);
+      state.totalPrice += action.payload.price;
     },
     removeFromCart: (state: CartState, action: PayloadAction<CartItem>) => {
-      const indexOfId = state.cartProductIds.indexOf(action.payload);
-      if (indexOfId !== -1) {
-        state.cartProductIds.splice(indexOfId, 1);
+      const product = state.cartProducts.find(
+        (item) => item.id === action.payload.id
+      );
+      if (product) {
+        state.totalPrice -= product.price;
+        state.cartProducts = state.cartProducts.filter(
+          (item) => item.id !== action.payload.id
+        );
       }
     },
     clearCart: (state: CartState) => {
-      state.cartProductIds = [];
+      state.cartProducts = [];
+      state.totalPrice = 0;
     },
   },
 });
