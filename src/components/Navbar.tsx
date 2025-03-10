@@ -2,7 +2,7 @@
 
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-
+import Image from "next/image";
 import { Fragment, useState } from "react";
 import Link from "next/link";
 import {
@@ -354,10 +354,12 @@ export default function Navbar() {
                   <div className="hidden lg:flex lg:items-center">
                     <a href="#">
                       <span className="sr-only">Your Company</span>
-                      <img
-                        alt=""
-                        src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                        className="h-8 w-auto"
+                      <Image
+                        src="/cinnamonLaneLogo.svg"
+                        alt="Company logo"
+                        // className="h-8 w-auto"
+                        width={35} // specify your desired width
+                        height={35}
                       />
                     </a>
                   </div>
@@ -547,10 +549,12 @@ export default function Navbar() {
                   {/* Logo (lg-) */}
                   <a href="#" className="lg:hidden">
                     <span className="sr-only">Your Company</span>
-                    <img
-                      alt=""
-                      src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                      className="h-8 w-auto"
+                    <Image
+                      src="/cinnamonLaneLogo.svg"
+                      alt="Company logo"
+                      // className="h-8 w-auto"
+                      width={35} // specify your desired width
+                      height={35}
                     />
                   </a>
 
