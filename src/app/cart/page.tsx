@@ -6,6 +6,7 @@ import cartSlice from "../../redux/cartSlice";
 // import { cartState } from "../../redux/Cart";
 import { RootState } from "../../redux/store";
 import Link from "next/link";
+import { TrashIcon } from "@heroicons/react/24/outline";
 
 // console.log(productDataObjects);
 // const shipping = 8;
@@ -22,7 +23,7 @@ export default function Cart() {
     cartProductIdSet.has(product.id)
   );
 
-  const { clearCart } = cartSlice.actions;
+  const { clearCart, removeFromCart } = cartSlice.actions;
 
   return (
     <>
@@ -91,9 +92,25 @@ export default function Cart() {
                         {/* <p>{product.color}</p>
                       <p>{product.size}</p> */}
                       </div>
-                      <p className="flex-none font-medium text-gray-900">
-                        {product.price}
-                      </p>
+                      <div className="flex flex-col items-end justify-between">
+                        <p className="justify-end font-medium text-gray-900">
+                          $ {product.price}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            dispatch(
+                              removeFromCart({
+                                id: product.id,
+                                price: product.price,
+                              })
+                            )
+                          }
+                          className="rounded-sm my-2 bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
+                        >
+                          <TrashIcon className="h-4 w-4" />
+                        </button>
+                      </div>
                     </li>
                   ))}
                 </ul>
