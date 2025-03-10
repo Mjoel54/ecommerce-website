@@ -2,17 +2,17 @@
 
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-
+import Image from "next/image";
 import { Fragment, useState } from "react";
 import Link from "next/link";
 import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-  PopoverPanel,
+  // Popover,
+  // PopoverButton,
+  // PopoverGroup,
+  // PopoverPanel,
   Tab,
   TabGroup,
   TabList,
@@ -20,10 +20,10 @@ import {
   TabPanels,
 } from "@headlessui/react";
 import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
+  // Bars3Icon,
+  // MagnifyingGlassIcon,
   ShoppingCartIcon,
-  UserIcon,
+  // UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -302,7 +302,7 @@ export default function Navbar() {
           <div className="bg-gray-900">
             <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
               {/* Currency selector */}
-              <div className="hidden lg:block lg:flex-1">
+              {/* <div className="hidden lg:block lg:flex-1">
                 <form>
                   <div className="-ml-2 inline-grid grid-cols-1">
                     <select
@@ -321,13 +321,13 @@ export default function Navbar() {
                     />
                   </div>
                 </form>
-              </div>
+              </div> */}
 
-              <p className="flex-1 text-center text-sm font-medium text-white lg:flex-none">
+              {/* <p className="flex-1 text-center text-sm font-medium text-white lg:flex-none">
                 Get free delivery on orders over $100
-              </p>
+              </p> */}
 
-              <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+              {/* <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                 <a
                   href="#"
                   className="text-sm font-medium text-white hover:text-gray-100"
@@ -341,7 +341,7 @@ export default function Navbar() {
                 >
                   Sign in
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -354,18 +354,20 @@ export default function Navbar() {
                   <div className="hidden lg:flex lg:items-center">
                     <a href="#">
                       <span className="sr-only">Your Company</span>
-                      <img
-                        alt=""
-                        src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                        className="h-8 w-auto"
+                      <Image
+                        src="/cinnamonLaneLogo.svg"
+                        alt="Company logo"
+                        // className="h-8 w-auto"
+                        width={35} // specify your desired width
+                        height={35}
                       />
                     </a>
                   </div>
 
-                  <div className="hidden h-full lg:flex">
-                    {/* Mega menus */}
-                    <PopoverGroup className="ml-8">
-                      <div className="flex h-full justify-center space-x-8">
+                  {/* <div className="hidden h-full lg:flex"> */}
+                  {/* Mega menus */}
+                  {/* <PopoverGroup className="ml-8"> */}
+                  {/* <div className="flex h-full justify-center space-x-8">
                         {navigation.categories.map((category, categoryIdx) => (
                           <Popover key={category.name} className="flex">
                             <div className="relative flex">
@@ -377,9 +379,9 @@ export default function Navbar() {
                             <PopoverPanel
                               transition
                               className="absolute inset-x-0 top-full text-gray-500 transition data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in sm:text-sm"
-                            >
-                              {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-                              <div
+                            > */}
+                  {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
+                  {/* <div
                                 aria-hidden="true"
                                 className="absolute inset-0 top-1/2 bg-white shadow-sm"
                               />
@@ -505,9 +507,9 @@ export default function Navbar() {
                               </div>
                             </PopoverPanel>
                           </Popover>
-                        ))}
+                        ))} */}
 
-                        {navigation.pages.map((page) => (
+                  {/* {navigation.pages.map((page) => (
                           <a
                             key={page.name}
                             href={page.href}
@@ -517,11 +519,11 @@ export default function Navbar() {
                           </a>
                         ))}
                       </div>
-                    </PopoverGroup>
-                  </div>
+                    </PopoverGroup> */}
+                  {/* </div> */}
 
                   {/* Mobile menu and search (lg-) */}
-                  <div className="flex flex-1 items-center lg:hidden">
+                  {/* <div className="flex flex-1 items-center lg:hidden">
                     <button
                       type="button"
                       onClick={() => setOpen(true)}
@@ -529,10 +531,10 @@ export default function Navbar() {
                     >
                       <span className="sr-only">Open menu</span>
                       <Bars3Icon aria-hidden="true" className="size-6" />
-                    </button>
+                    </button> */}
 
-                    {/* Search */}
-                    <a
+                  {/* Search */}
+                  {/* <a
                       href="#"
                       className="ml-2 p-2 text-gray-400 hover:text-gray-500"
                     >
@@ -542,21 +544,23 @@ export default function Navbar() {
                         className="size-6"
                       />
                     </a>
-                  </div>
+                  </div> */}
 
                   {/* Logo (lg-) */}
-                  <a href="#" className="lg:hidden">
-                    <span className="sr-only">Your Company</span>
-                    <img
-                      alt=""
-                      src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                      className="h-8 w-auto"
+                  <a href="/" className="lg:hidden">
+                    <span className="sr-only">Cinnamon Lane</span>
+                    <Image
+                      src="/cinnamonLaneLogo.svg"
+                      alt="Company logo"
+                      // className="h-8 w-auto"
+                      width={35} // specify your desired width
+                      height={35}
                     />
                   </a>
 
                   <div className="flex flex-1 items-center justify-end">
                     <div className="flex items-center lg:ml-8">
-                      <div className="flex space-x-8">
+                      {/* <div className="flex space-x-8">
                         <div className="hidden lg:flex">
                           <a
                             href="#"
@@ -579,7 +583,7 @@ export default function Navbar() {
                             <UserIcon aria-hidden="true" className="size-6" />
                           </a>
                         </div>
-                      </div>
+                      </div> */}
 
                       <span
                         aria-hidden="true"
