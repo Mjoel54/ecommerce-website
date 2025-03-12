@@ -2,7 +2,7 @@
 
 import productDataObjects from "../../data/products";
 import { useSelector, useDispatch } from "react-redux";
-import cartSlice from "../../redux/cartSlice";
+import cartSlice from "../../redux/reducers/cartReducer";
 // import { cartState } from "../../redux/Cart";
 import { RootState } from "../../redux/store";
 import Link from "next/link";
@@ -14,7 +14,7 @@ import { TrashIcon } from "@heroicons/react/24/outline";
 
 export default function Cart() {
   const { cartProducts, totalPrice } = useSelector(
-    (state: RootState) => state.cart
+    (state: RootState) => state.reducer.cart
   );
   const dispatch = useDispatch();
   const cartProductIdSet = new Set(cartProducts.map((cartItem) => cartItem.id));

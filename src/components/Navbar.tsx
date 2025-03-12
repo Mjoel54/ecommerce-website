@@ -96,7 +96,9 @@ const navigation = {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { cartProducts } = useSelector((state: RootState) => state.cart);
+  const { cartProducts } = useSelector(
+    (state: RootState) => state.reducer.cart
+  );
 
   return (
     <div className="bg-white">

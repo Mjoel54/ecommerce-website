@@ -3,11 +3,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import productDataObjects from "../data/products";
 // import { CheckCircleIcon } from "@heroicons/react/20/solid";
-import cartSlice from "../redux/cartSlice";
+import cartSlice from "../redux/reducers/cartReducer";
 import { RootState } from "../redux/store";
 
 export default function ProductList() {
-  const { cartProducts } = useSelector((state: RootState) => state.cart);
+  const { cartProducts } = useSelector(
+    (state: RootState) => state.reducer.cart
+  );
   const { addToCart, removeFromCart } = cartSlice.actions;
   const dispatch = useDispatch();
 
