@@ -23,12 +23,12 @@ export default function Wishlist() {
       <Navbar />
       <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
         <div className="mb-4">
-          <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+          <h2 className="text-5xl font-semibold tracking-tight sm:text-5xl sm:text-left text-center text-amber-900 mb-2">
             Wish List
           </h2>
-          <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
-            Your Favourites page is a curated collection of your top picks.
-            Explore your personal favourites and rediscover what you love.
+          <p className="text-center sm:text-left text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
+            A curated collection of your top picks. Explore your personal
+            favourites and rediscover what you love.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
