@@ -20,13 +20,6 @@ export default function ProductList() {
   const { addToCart, removeFromCart } = cartSlice.actions;
   const dispatch = useDispatch();
 
-  {
-    /* <a href="#">
-                    <span aria-hidden="true" className="absolute inset-0" />
-                    {product.name}
-                  </a> */
-  }
-
   console.log("cartProductIds", cartProducts);
 
   return (
@@ -51,6 +44,10 @@ export default function ProductList() {
                   <h3 className="text-sm font-medium text-gray-900">
                     {product.name}
                   </h3>
+                  {/* <a href="#">
+                    <span aria-hidden="true" className="absolute inset-0" />
+                    {product.name}
+                  </a> */}
                   <p className="text-sm text-gray-500">{product.description}</p>
                   <p className="text-sm font-medium text-gray-900">
                     ${product.price}
