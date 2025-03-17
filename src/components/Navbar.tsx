@@ -22,6 +22,7 @@ import {
 import {
   // Bars3Icon,
   // MagnifyingGlassIcon,
+  HeartIcon,
   ShoppingCartIcon,
   // UserIcon,
   XMarkIcon,
@@ -562,9 +563,9 @@ export default function Navbar() {
 
                   <div className="flex flex-1 items-center justify-end">
                     <div className="flex items-center lg:ml-8">
-                      {/* <div className="flex space-x-8">
+                      <div className="flex space-x-8">
                         <div className="hidden lg:flex">
-                          <a
+                          {/* <a
                             href="#"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                           >
@@ -573,19 +574,28 @@ export default function Navbar() {
                               aria-hidden="true"
                               className="size-6"
                             />
-                          </a>
+                          </a> */}
                         </div>
 
                         <div className="flex">
-                          <a
+                          {/* <a
                             href="#"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                           >
                             <span className="sr-only">Account</span>
                             <UserIcon aria-hidden="true" className="size-6" />
-                          </a>
+                          </a> */}
+                          <Link href="/wishlist">
+                            <HeartIcon
+                              aria-hidden="true"
+                              className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
+                            />
+                            <span className="sr-only">
+                              favourite items, view wishlist
+                            </span>
+                          </Link>
                         </div>
-                      </div> */}
+                      </div>
 
                       <span
                         aria-hidden="true"
