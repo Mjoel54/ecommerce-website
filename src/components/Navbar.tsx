@@ -550,7 +550,7 @@ export default function Navbar() {
                   </div> */}
 
                   {/* Logo (lg-) */}
-                  <a href="/" className="lg:hidden">
+                  <Link href="/" className="lg:hidden">
                     <span className="sr-only">Cinnamon Lane</span>
                     <Image
                       src="/cinnamonLaneLogo.svg"
@@ -559,7 +559,7 @@ export default function Navbar() {
                       width={35} // specify your desired width
                       height={35}
                     />
-                  </a>
+                  </Link>
 
                   <div className="flex flex-1 items-center justify-end">
                     <div className="flex items-center lg:ml-8">
