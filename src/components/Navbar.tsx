@@ -355,7 +355,7 @@ export default function Navbar() {
                 <div className="flex h-16 items-center justify-between">
                   {/* Logo (lg+) */}
                   <div className="hidden lg:flex lg:items-center">
-                    <a href="/">
+                    <Link href="/">
                       <span className="sr-only">Your Company</span>
                       <Image
                         src="/cinnamonLaneLogo.svg"
@@ -364,7 +364,7 @@ export default function Navbar() {
                         width={35} // specify your desired width
                         height={35}
                       />
-                    </a>
+                    </Link>
                   </div>
 
                   {/* <div className="hidden h-full lg:flex"> */}
