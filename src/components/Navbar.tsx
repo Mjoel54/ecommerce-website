@@ -21,7 +21,7 @@ import {
 } from "@headlessui/react";
 import {
   // Bars3Icon,
-  // MagnifyingGlassIcon,
+  MagnifyingGlassIcon,
   HeartIcon,
   ShoppingCartIcon,
   // UserIcon,
@@ -104,7 +104,7 @@ export default function Navbar() {
   return (
     <div className="bg-white">
       {/* Mobile menu */}
-      <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
+      {/* <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-closed:opacity-0"
@@ -124,10 +124,10 @@ export default function Navbar() {
                 <span className="sr-only">Close menu</span>
                 <XMarkIcon aria-hidden="true" className="size-6" />
               </button>
-            </div>
+            </div> */}
 
-            {/* Links */}
-            <TabGroup className="mt-2">
+      {/* Links */}
+      {/* <TabGroup className="mt-2">
               <div className="border-b border-gray-200">
                 <TabList className="-mb-px flex space-x-8 px-4">
                   {navigation.categories.map((category) => (
@@ -240,9 +240,9 @@ export default function Navbar() {
                   </TabPanel>
                 ))}
               </TabPanels>
-            </TabGroup>
+            </TabGroup> */}
 
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+      {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               {navigation.pages.map((page) => (
                 <div key={page.name} className="flow-root">
                   <a
@@ -253,9 +253,9 @@ export default function Navbar() {
                   </a>
                 </div>
               ))}
-            </div>
+            </div> */}
 
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+      {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
                 <a
                   href="#"
@@ -272,11 +272,11 @@ export default function Navbar() {
                   Sign in
                 </a>
               </div>
-            </div>
+            </div> */}
 
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              {/* Currency selector */}
-              <form>
+      {/* <div className="space-y-6 border-t border-gray-200 px-4 py-6"> */}
+      {/* Currency selector */}
+      {/* <form>
                 <div className="-ml-2 inline-grid grid-cols-1">
                   <select
                     id="mobile-currency"
@@ -293,11 +293,11 @@ export default function Navbar() {
                     className="pointer-events-none col-start-1 row-start-1 mr-1 size-5 self-center justify-self-end fill-gray-500"
                   />
                 </div>
-              </form>
-            </div>
-          </DialogPanel>
-        </div>
-      </Dialog>
+              </form> */}
+      {/* </div> */}
+      {/* </DialogPanel> */}
+      {/* </div>
+      </Dialog> */}
 
       <header className="relative">
         <nav aria-label="Top">
@@ -526,8 +526,8 @@ export default function Navbar() {
                   {/* </div> */}
 
                   {/* Mobile menu and search (lg-) */}
-                  {/* <div className="flex flex-1 items-center lg:hidden">
-                    <button
+                  {/* <div className="flex flex-1 items-center lg:hidden"> */}
+                  {/* <button
                       type="button"
                       onClick={() => setOpen(true)}
                       className="-ml-2 rounded-md bg-white p-2 text-gray-400"
@@ -546,8 +546,8 @@ export default function Navbar() {
                         aria-hidden="true"
                         className="size-6"
                       />
-                    </a>
-                  </div> */}
+                    </a> */}
+                  {/* </div> */}
 
                   {/* Logo (lg-) */}
                   <Link href="/" className="lg:hidden">
@@ -555,8 +555,7 @@ export default function Navbar() {
                     <Image
                       src="/cinnamonLaneLogo.svg"
                       alt="Company logo"
-                      // className="h-8 w-auto"
-                      width={35} // specify your desired width
+                      width={35}
                       height={35}
                     />
                   </Link>
@@ -565,8 +564,8 @@ export default function Navbar() {
                     <div className="flex items-center lg:ml-8">
                       <div className="flex space-x-8">
                         <div className="hidden lg:flex">
-                          {/* <a
-                            href="#"
+                          <Link
+                            href="/"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                           >
                             <span className="sr-only">Search</span>
@@ -574,7 +573,7 @@ export default function Navbar() {
                               aria-hidden="true"
                               className="size-6"
                             />
-                          </a> */}
+                          </Link>
                         </div>
 
                         <div className="flex">
