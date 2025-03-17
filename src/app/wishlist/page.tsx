@@ -3,6 +3,7 @@ import productDataObjects from "../../data/products";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import ProductCard from "@/components/productCard";
+import Navbar from "@/components/Navbar";
 
 export default function Wishlist() {
   const { wishlistProducts } = useSelector(
@@ -18,9 +19,18 @@ export default function Wishlist() {
   );
 
   return (
-    <div>
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2>Wishlist</h2>
+    <>
+      <Navbar />
+      <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
+        <div className="mb-4">
+          <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+            Wish List
+          </h2>
+          <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
+            Your Favourites page is a curated collection of your top picks.
+            Explore your personal favourites and rediscover what you love.
+          </p>
+        </div>
         <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
           {wishlistProductData.map((product) => (
             <ProductCard
@@ -34,6 +44,6 @@ export default function Wishlist() {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }
