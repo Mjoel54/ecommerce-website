@@ -3,7 +3,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { Fragment, useState, ChangeEvent } from "react";
 import Link from "next/link";
 import {
   Dialog,
@@ -21,13 +21,14 @@ import {
 } from "@headlessui/react";
 import {
   // Bars3Icon,
-  // MagnifyingGlassIcon,
+  MagnifyingGlassIcon,
   HeartIcon,
   ShoppingCartIcon,
   // UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import SearchBar from "./SearchBar";
 
 const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 const navigation = {
@@ -95,7 +96,11 @@ const navigation = {
   ],
 };
 
-export default function Navbar() {
+interface NavbarProps {
+  onSearchChange?: (query: string) => void;
+}
+
+export default function Navbar({ onSearchChange = () => {} }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const { cartProducts } = useSelector(
     (state: RootState) => state.reducer.cart
@@ -562,63 +567,41 @@ export default function Navbar() {
                   </Link>
 
                   <div className="flex flex-1 items-center justify-end">
-                    <div className="flex items-center lg:ml-8">
-                      <div className="flex space-x-8">
-                        <div className="hidden lg:flex">
-                          {/* <a
-                            href="#"
-                            className="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                          >
-                            <span className="sr-only">Search</span>
-                            <MagnifyingGlassIcon
-                              aria-hidden="true"
-                              className="size-6"
-                            />
-                          </a> */}
-                        </div>
-
-                        <div className="flex">
-                          {/* <a
-                            href="#"
-                            className="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                          >
-                            <span className="sr-only">Account</span>
-                            <UserIcon aria-hidden="true" className="size-6" />
-                          </a> */}
-                          <Link href="/wishlist">
-                            <HeartIcon
-                              aria-hidden="true"
-                              className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
-                            />
-                            <span className="sr-only">
-                              favourite items, view wishlist
-                            </span>
-                          </Link>
-                        </div>
+                    <div className="flex items-center space-x-6">
+                      <div className="hidden lg:flex">
+                        <SearchBar onSearchChange={onSearchChange} />
                       </div>
 
-                      <span
-                        aria-hidden="true"
-                        className="mx-4 h-6 w-px bg-gray-200 lg:mx-6"
-                      />
+                      <Link href="/wishlist">
+                        <HeartIcon
+                          aria-hidden="true"
+                          className="size-6 text-gray-400 hover:text-gray-500"
+                        />
+                        <span className="sr-only">
+                          favourite items, view wishlist
+                        </span>
+                      </Link>
+                    </div>
 
-                      <div className="flow-root">
-                        <Link
-                          href="/cart"
-                          className="group -m-2 flex items-center p-2"
-                        >
-                          <ShoppingCartIcon
-                            aria-hidden="true"
-                            className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
-                          />
-                          <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                            {cartProducts.length}
-                          </span>
-                          <span className="sr-only">
-                            items in cart, view bag
-                          </span>
-                        </Link>
-                      </div>
+                    <span
+                      aria-hidden="true"
+                      className="mx-6 h-6 w-px bg-gray-200"
+                    />
+
+                    <div className="flow-root">
+                      <Link
+                        href="/cart"
+                        className="group -m-2 flex items-center p-2"
+                      >
+                        <ShoppingCartIcon
+                          aria-hidden="true"
+                          className="size-6 text-gray-400 group-hover:text-gray-500"
+                        />
+                        <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                          {cartProducts.length}
+                        </span>
+                        <span className="sr-only">items in cart, view bag</span>
+                      </Link>
                     </div>
                   </div>
                 </div>
