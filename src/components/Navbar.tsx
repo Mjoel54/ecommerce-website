@@ -21,7 +21,7 @@ import {
 } from "@headlessui/react";
 import {
   // Bars3Icon,
-  // MagnifyingGlassIcon,
+  MagnifyingGlassIcon,
   HeartIcon,
   ShoppingCartIcon,
   // UserIcon,
@@ -565,7 +565,7 @@ export default function Navbar() {
                     <div className="flex items-center lg:ml-8">
                       <div className="flex space-x-8">
                         <div className="hidden lg:flex">
-                          {/* <a
+                          <a
                             href="#"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
                           >
@@ -574,7 +574,7 @@ export default function Navbar() {
                               aria-hidden="true"
                               className="size-6"
                             />
-                          </a> */}
+                          </a>
                         </div>
 
                         <div className="flex">
