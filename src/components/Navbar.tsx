@@ -97,10 +97,10 @@ const navigation = {
 };
 
 interface NavbarProps {
-  onSearchChange: (query: string) => void;
+  onSearchChange?: (query: string) => void;
 }
 
-export default function Navbar({ onSearchChange }: NavbarProps) {
+export default function Navbar({ onSearchChange = () => {} }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const { cartProducts } = useSelector(
     (state: RootState) => state.reducer.cart
