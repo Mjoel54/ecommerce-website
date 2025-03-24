@@ -36,7 +36,7 @@ export default function ProductCard({
   return (
     <div
       key={productId}
-      className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
+      className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md"
     >
       <img
         // alt={product.imageAlt}
