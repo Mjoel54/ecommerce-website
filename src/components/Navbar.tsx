@@ -105,7 +105,7 @@ export default function Navbar({ onSearchChange = () => {} }: NavbarProps) {
   const { cartProducts } = useSelector((state: RootState) => state.cart);
 
   return (
-    <div className="bg-white">
+    <div>
       {/* Mobile menu */}
       <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
         <DialogBackdrop
@@ -351,8 +351,8 @@ export default function Navbar({ onSearchChange = () => {} }: NavbarProps) {
             </div>
           </div>
 
-          {/* Secondary navigation */}
-          <div className="bg-white">
+          {/* Wide screen navigation */}
+          <div>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="border-b border-gray-200">
                 <div className="flex h-16 items-center justify-between">
