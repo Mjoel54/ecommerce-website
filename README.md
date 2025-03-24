@@ -1,6 +1,6 @@
 # Cinnamon Lane
 
-Welcome to **Cinnamon Lane**, an e-commerce platform for home decor and lifestyle products. This project is demonstrates my use of Redux to handle typed state management throughout the app.
+Welcome to **Cinnamon Lane**, an e-commerce platform for home decor and lifestyle products. This project demonstrates state management for cart and wishlist states through the use of Redux and Redux Persist.
 
 Deployed application: https://cinnamonlane.netlify.app/
 
@@ -15,6 +15,7 @@ Deployed application: https://cinnamonlane.netlify.app/
 
 - **React**: For building the user interface.
 - **Redux**: For state management, with a typed cart state throughout the app.
+- **Redux Persist**: For persisting and rehydrating Redux store data in local storage.
 
 ## Getting Started
 

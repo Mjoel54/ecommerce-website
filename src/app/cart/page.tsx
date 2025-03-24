@@ -14,7 +14,7 @@ import { TrashIcon } from "@heroicons/react/24/outline";
 
 export default function Cart() {
   const { cartProducts, totalPrice } = useSelector(
-    (state: RootState) => state.reducer.cart
+    (state: RootState) => state.cart
   );
   const dispatch = useDispatch();
   const cartProductIdSet = new Set(cartProducts.map((cartItem) => cartItem.id));
@@ -51,8 +51,8 @@ export default function Cart() {
                 Your Cart
               </h1>
               {/* <p className="mt-2 text-base text-gray-500">
-                We appreciate your order, we’re currently processing it. So hang
-                tight and we’ll send you confirmation very soon!
+                We appreciate your order, we're currently processing it. So hang
+                tight and we'll send you confirmation very soon!
               </p> */}
 
               {/* <dl className="mt-16 text-sm font-medium">

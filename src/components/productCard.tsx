@@ -7,6 +7,7 @@ import { HeartIcon as HeartOutlineIcon } from "@heroicons/react/24/outline";
 import cartSlice from "../redux/reducers/cartReducer";
 import wishlistSlice from "@/redux/reducers/wishlistReducer";
 import { RootState } from "../redux/store";
+import CartButton from "./CartButton";
 
 export interface ProductCardProps {
   productId: number;
@@ -23,11 +24,9 @@ export default function ProductCard({
   productDescription,
   productPrice,
 }: ProductCardProps) {
-  const { cartProducts } = useSelector(
-    (state: RootState) => state.reducer.cart
-  );
+  const { cartProducts } = useSelector((state: RootState) => state.cart);
   const { wishlistProducts } = useSelector(
-    (state: RootState) => state.reducer.wishlist
+    (state: RootState) => state.wishlist
   );
   const { addToWishlist, removeFromWishlist } = wishlistSlice.actions;
   const { addToCart, removeFromCart } = cartSlice.actions;
@@ -96,20 +95,17 @@ export default function ProductCard({
           </div>
           <div>
             {!cartProducts.some((cartItem) => cartItem.id === productId) && (
-              <button
-                type="button"
+              <CartButton
+                buttonText="Add to cart"
                 onClick={() =>
                   dispatch(addToCart({ id: productId, price: productPrice }))
                 }
-                className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
-              >
-                Add to cart
-              </button>
+              />
             )}
 
             {cartProducts.some((cartItem) => cartItem.id === productId) && (
-              <button
-                type="button"
+              <CartButton
+                buttonText="Remove from cart"
                 onClick={() =>
                   dispatch(
                     removeFromCart({
@@ -118,10 +114,7 @@ export default function ProductCard({
                     })
                   )
                 }
-                className="rounded-sm bg-white px-2 py-1 text-xs font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer"
-              >
-                Remove from cart
-              </button>
+              />
             )}
           </div>
         </div>
