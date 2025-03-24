@@ -24,11 +24,9 @@ export default function ProductCard({
   productDescription,
   productPrice,
 }: ProductCardProps) {
-  const { cartProducts } = useSelector(
-    (state: RootState) => state.reducer.cart
-  );
+  const { cartProducts } = useSelector((state: RootState) => state.cart);
   const { wishlistProducts } = useSelector(
-    (state: RootState) => state.reducer.wishlist
+    (state: RootState) => state.wishlist
   );
   const { addToWishlist, removeFromWishlist } = wishlistSlice.actions;
   const { addToCart, removeFromCart } = cartSlice.actions;
