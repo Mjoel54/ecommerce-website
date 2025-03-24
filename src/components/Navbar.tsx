@@ -102,9 +102,7 @@ interface NavbarProps {
 
 export default function Navbar({ onSearchChange = () => {} }: NavbarProps) {
   const [open, setOpen] = useState(false);
-  const { cartProducts } = useSelector(
-    (state: RootState) => state.reducer.cart
-  );
+  const { cartProducts } = useSelector((state: RootState) => state.cart);
 
   return (
     <div className="bg-white">

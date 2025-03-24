@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 
 export default function Wishlist() {
   const { wishlistProducts } = useSelector(
-    (state: RootState) => state.reducer.wishlist
+    (state: RootState) => state.wishlist
   );
 
   const wishlistProductIdSet = new Set(
